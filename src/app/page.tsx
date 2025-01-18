@@ -1,101 +1,112 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main className="overscroll-none">
+      <div className="sm:min-h-screen text-neutral-800 bg-white">
+        <div className="max-w-xl px-4 sm:px-0 mx-auto text-base pt-4">
+          <div className="flex items-center justify-between text-neutral-500">
+            <div className="text-[#FE2C55] text-lg sm:text-xl font-bold">
+              TikSync
+            </div>
+            <div className="flex gap-3 sm:gap-6 items-center">
+              <a
+                href="#how"
+                className="hover:text-[#FE2C55] text-sm sm:text-base"
+              >
+                How It Works
+              </a>
+              <a
+                href="#faq"
+                className="hover:text-[#FE2C55] text-sm sm:text-base"
+              >
+                FAQ
+              </a>
+              <button className="btn btn-primary btn-sm sm:btn-md bg-[#FE2C55] hover:bg-[#FE2C55]/90 border-none text-white">
+                Connect
+              </button>
+            </div>
+          </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          <div className="py-8 px-4 sm:px-8 sm:pt-12 sm:pb-24">
+            <div className="max-w-xl mx-auto sm:pt-12">
+              <div className="mb-8">
+                <h1 className="text-2xl pb-4">
+                  Keep Your TikTok Community Together
+                </h1>
+                <p className="pb-2 text-base">
+                  Follow your favorite creators across all platforms, even if
+                  TikTok becomes unavailable.
+                </p>
+                <div className="flex flex-wrap gap-2 mt-4">
+                  <button className="btn btn-primary w-full bg-[#FE2C55] hover:bg-[#FE2C55]/90 border-none text-white">
+                    Connect with TikTok
+                  </button>
+                </div>
+              </div>
+
+              <div id="how" className="py-8">
+                <h2 className="text-xl pb-6">How It Works</h2>
+                <div className="grid gap-8 grid-cols-1 sm:grid-cols-3">
+                  {[
+                    'Connect your TikTok account securely',
+                    "Discover creators' other platforms",
+                    'Follow them everywhere',
+                  ].map((step, i) => (
+                    <div key={i} className="flex items-start gap-4">
+                      <div className="w-8 h-8 bg-[#FE2C55] text-white rounded-full flex items-center justify-center font-medium flex-shrink-0">
+                        {i + 1}
+                      </div>
+                      <p className="text-sm pt-1.5">{step}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div id="faq" className="py-8">
+                <h2 className="text-xl pb-6">FAQ</h2>
+                <div className="space-y-6">
+                  {[
+                    {
+                      question: 'Is it safe to log in with my TikTok account?',
+                      answer:
+                        "Yes! We only see who you follow through TikTok's official OAuth system.",
+                    },
+                    {
+                      question: 'What if TikTok becomes unavailable?',
+                      answer:
+                        "You'll still be connected with creators on other platforms.",
+                    },
+                    {
+                      question: 'Is TikSync free?',
+                      answer: 'Yes, completely free for everyone.',
+                    },
+                  ].map((item, i) => (
+                    <div key={i} className="border-b border-neutral-100 pb-4">
+                      <h3 className="font-medium text-base mb-2">
+                        {item.question}
+                      </h3>
+                      <p className="text-neutral-600 text-sm">{item.answer}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+
+      <div className="p-4 text-xs bg-neutral-50 border-t">
+        <div className="max-w-xl mx-auto w-full text-neutral-600 justify-between flex items-center gap-2 flex-wrap">
+          <div className="flex gap-2">
+            <div>© 2024 TikSync</div>
+            <a href="#" className="hover:text-[#FE2C55]">
+              Privacy
+            </a>
+            <a href="#" className="hover:text-[#FE2C55]">
+              Terms
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
   );
 }
